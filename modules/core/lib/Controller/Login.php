@@ -13,7 +13,10 @@ use SimpleSAML\Utils;
 use SimpleSAML\XHTML\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+>>>>>>> Rename Controller-classes
 
 /**
  * Controller class for the core module.
@@ -151,7 +154,11 @@ class Login
             /** @var array $state */
             $state = Auth\State::loadExceptionState();
 
+<<<<<<< HEAD
             Assert::keyExists($state, Auth\State::EXCEPTION_DATA);
+=======
+            assert(array_key_exists(Auth\State::EXCEPTION_DATA, $state));
+>>>>>>> Rename Controller-classes
             $e = $state[Auth\State::EXCEPTION_DATA];
 
             throw $e;
