@@ -11,10 +11,7 @@ use SimpleSAML\Session;
 use SimpleSAML\Utils;
 use SimpleSAML\XHTML\Template;
 use Symfony\Component\HttpFoundation\Request;
-<<<<<<< HEAD
 use Webmozart\Assert\Assert;
-=======
->>>>>>> Rename Controller-classes
 
 /**
  * Controller class for the core module.
@@ -72,19 +69,11 @@ class Redirection
                 throw new Error\BadRequest('Invalid RedirInfo data.');
             }
 
-<<<<<<< HEAD
             list($sessionId, $postId) = explode(':', Utils\Crypto::aesDecrypt($encData));
-=======
-            list($sessionId, $postId) = explode(':', \SimpleSAML\Utils\Crypto::aesDecrypt($encData));
->>>>>>> Rename Controller-classes
 
             if (empty($sessionId) || empty($postId)) {
                 throw new Error\BadRequest('Invalid session info data.');
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> Rename Controller-classes
         } else {
             throw new Error\BadRequest('Missing redirection info parameter.');
         }
@@ -103,15 +92,9 @@ class Redirection
 
         $session->deleteData('core_postdatalink', $postId);
 
-<<<<<<< HEAD
         Assert::isArray($postData);
         Assert::keyExists($postData, 'url');
         Assert::keyExists($postData, 'post');
-=======
-        assert(is_array($postData));
-        assert(array_key_exists('url', $postData));
-        assert(array_key_exists('post', $postData));
->>>>>>> Rename Controller-classes
 
         if (!Utils\HTTP::isValidURL($postData['url'])) {
             throw new Error\Exception('Invalid destination URL.');
