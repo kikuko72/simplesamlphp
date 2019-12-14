@@ -19,6 +19,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 env:
   - COMMAND="composer install"
@@ -75,6 +76,14 @@ jobs:
 
     - stage: pre-conditions
       php: 7.3
+      env: Syntax check PHP
+      before_script:
+        - composer install
+      script:
+        - vendor/bin/check-syntax-php.sh
+
+    - stage: pre-conditions
+      php: 7.4
       env: Syntax check PHP
       before_script:
         - composer install
