@@ -43,6 +43,10 @@ jobs:
       env: Security check (composer update)
     - php: 7.0
       env: PHP Codesniffer
+    - php: 7.4
+      env: COMMAND="composer install"
+    - php: 7.4
+      env: COMMAND="composer update"
 
   include:
 
